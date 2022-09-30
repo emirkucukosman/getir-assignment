@@ -41,11 +41,11 @@ export const Brands = () => {
 
   return (
     <Card title="Brands">
-      <TextField placeholder="Search brand" value={search} onChange={handleSearch} />
+      <TextField placeholder="Search brand" value={search} onChange={handleSearch} role="textbox" />
       {isError && <div className="text-red-500">Something went wrong</div>}
       {isLoading && <CheckboxButton.Loading />}
       {filteredCompanies.length > 0 && (
-        <div className="h-[108px] mt-4 overflow-scroll">
+        <div className="h-[108px] mt-4 overflow-scroll" role={"contentinfo"}>
           {filteredCompanies.map((company, i) => (
             <CheckboxButton.Input
               label={company.name}

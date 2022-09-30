@@ -23,6 +23,8 @@ export const store = configureStore({
   devTools: import.meta.env.DEV,
 });
 
+export type AppStore = typeof store;
+
 export type AppDispatch = typeof store.dispatch;
 
 export type RootState = ReturnType<typeof store.getState>;

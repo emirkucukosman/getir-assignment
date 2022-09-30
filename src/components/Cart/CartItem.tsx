@@ -21,7 +21,10 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 border-b-[1px] border-b-slate-200 p-3">
+    <div
+      className="flex items-center justify-between gap-4 border-b-[1px] border-b-slate-200 p-3"
+      data-testid="cart-item"
+    >
       <div className="flex flex-col">
         <span>{item.name}</span>
         <span className="text-primary">₺ {item.price * item.quantity}</span>

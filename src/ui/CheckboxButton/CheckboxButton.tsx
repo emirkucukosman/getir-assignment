@@ -10,7 +10,7 @@ type InputProps = {
 
 export const Input: React.FC<InputProps> = ({ label, value, checked, onChange }) => {
   return (
-    <label className={classes.container}>
+    <label className={classes.container} role={"checkbox"}>
       {label}
       <input type="checkbox" checked={checked} onChange={onChange} />
       <span className={classes.checkmark}></span>
