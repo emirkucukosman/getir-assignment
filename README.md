@@ -15,8 +15,10 @@ To run the project locally you can follow these steps:
 
 2. Get into project directory `cd getir-assignment`
 
-3. Start the json-server with `npm run start:server`
+3. Install the dependencies with `npm install`
 
-4. Start the frontend with `npm run dev`
+4. Start the json-server with `npm run start:server`
 
-5. Head to [localhost](http://localhost:3000) and enjoy
+5. Start the frontend with `npm run dev`
+
+6. Head to [localhost](http://localhost:3000) and enjoy
