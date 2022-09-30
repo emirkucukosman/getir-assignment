@@ -17,13 +17,15 @@ To run the project locally you can follow these steps:
 
 2. Get into project directory `cd getir-assignment`
 
-3. Install the dependencies with `npm install`
+3. Create a `.env.local` file, create a variable named `VITE_API_BASE_URL` and assign `http://localhost:3001` to it
 
-4. Start the json-server with `npm run start:server`
+4. Install the dependencies with `npm install`
 
-5. Start the frontend with `npm run dev`
+5. Start the json-server with `npm run start:server`
 
-6. Head to [localhost](http://localhost:3000) and enjoy
+6. Start the frontend with `npm run dev`
+
+7. Head to [localhost](http://localhost:3000) and enjoy
 
 ## Building
 
