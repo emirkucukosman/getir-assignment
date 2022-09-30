@@ -6,6 +6,8 @@ Backend is a simple [json-server](https://github.com/typicode/json-server) deplo
 
 Frontend is a React application created with [Vite](https://vitejs.dev/)'s react-ts template and it is deployed at Netlify [here](https://calm-truffle-58e58c.netlify.app/)
 
+Due to my limited time I couldn't provide proper testing and documentation for all of the components but I did my best show the core concepts
+
 ## Get Started
 
 To run the project locally you can follow these steps:
@@ -22,3 +24,17 @@ To run the project locally you can follow these steps:
 5. Start the frontend with `npm run dev`
 
 6. Head to [localhost](http://localhost:3000) and enjoy
+
+## Building
+
+To build the app for production you can follow these steps:
+
+1. Run `npm run build`
+
+2. Run `npm run preview`
+
+3. Head to [localhost](http://localhost:3000) and test the production build
+
+## Testing
+
+For testing you can use the command `npm test` and Vitest will run and watch your test files for any changes
