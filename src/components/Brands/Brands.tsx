@@ -1,0 +1,61 @@
+import { useMemo, useState } from "react";
+
+// Redux
+import { useAppDispatch, useAppSelector } from "~/app/hook";
+import { selectManufacturers, setArrayFilter } from "~/slices/filterSlice";
+
+// Services
+import { useGetCompaniesQuery } from "~/services/companyApi";
+
+// UI Components
+import { CheckboxButton } from "~/ui/CheckboxButton";
+import { TextField } from "~/ui/TextField";
+import { Card } from "~/ui/Card";
+
+export const Brands = () => {
+  const dispatch = useAppDispatch();
+  const manufacturers = useAppSelector(selectManufacturers);
+
+  // Queries
+  const { data: companies, isLoading } = useGetCompaniesQuery();
+
+  // State
+  const [search, setSearch] = useState("");
+
+  // Memoized
+  const filteredCompanies = useMemo(() => {
+    if (!companies) return [];
+    if (!search) return companies;
+    return companies.filter((company) => {
+      return company.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }, [companies, search]);
+
+  const handleBrandChange = (value: string) => () => {
+    dispatch(setArrayFilter({ key: "manufacturers", value }));
+  };
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
+  return (
+    <Card title="Brands">
+      <TextField placeholder="Search brand" value={search} onChange={handleSearch} />
+      {isLoading && <CheckboxButton.Loading />}
+      {!isLoading && (
+        <div className="h-[108px] mt-4 overflow-scroll">
+          {filteredCompanies.map((company, i) => (
+            <CheckboxButton.Input
+              label={company.name}
+              value={company.slug}
+              checked={manufacturers.includes(company.slug)}
+              onChange={handleBrandChange(company.slug)}
+              key={i}
+            />
+          ))}
+        </div>
+      )}
+    </Card>
+  );
+};
