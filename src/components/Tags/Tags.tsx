@@ -17,7 +17,7 @@ export const Tags = () => {
   const tagsFilter = useAppSelector(selectTags);
 
   // Queries
-  const { data: tags, isLoading } = useGetTagsQuery();
+  const { data: tags, isLoading, isError } = useGetTagsQuery();
 
   // State
   const [search, setSearch] = useState("");
@@ -42,8 +42,9 @@ export const Tags = () => {
   return (
     <Card title="Tags">
       <TextField placeholder="Search tag" value={search} onChange={handleSearch} />
+      {isError && <div className="text-red-500">Something went wrong</div>}
       {isLoading && <CheckboxButton.Loading />}
-      {!isLoading && (
+      {filteredTags.length > 0 && (
         <div className="h-[108px] mt-4 overflow-scroll">
           {filteredTags.map((tag, i) => (
             <CheckboxButton.Input
