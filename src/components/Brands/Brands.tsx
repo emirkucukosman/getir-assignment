@@ -17,7 +17,7 @@ export const Brands = () => {
   const manufacturers = useAppSelector(selectManufacturers);
 
   // Queries
-  const { data: companies, isLoading } = useGetCompaniesQuery();
+  const { data: companies, isLoading, isError } = useGetCompaniesQuery();
 
   // State
   const [search, setSearch] = useState("");
@@ -42,8 +42,9 @@ export const Brands = () => {
   return (
     <Card title="Brands">
       <TextField placeholder="Search brand" value={search} onChange={handleSearch} />
+      {isError && <div className="text-red-500">Something went wrong</div>}
       {isLoading && <CheckboxButton.Loading />}
-      {!isLoading && (
+      {filteredCompanies.length > 0 && (
         <div className="h-[108px] mt-4 overflow-scroll">
           {filteredCompanies.map((company, i) => (
             <CheckboxButton.Input
