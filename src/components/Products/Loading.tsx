@@ -3,7 +3,7 @@ export const Loading = () => {
     <div className="bg-white p-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-y-5 gap-x-6">
         {Array.from({ length: 16 }).map((_, i) => (
-          <div className="animate-pulse">
+          <div className="animate-pulse" key={i}>
             <div className="flex flex-col justify-between gap-2">
               <div className="flex flex-col gap-1">
                 <div className="border-2 border-[#F3F0FE] p-4 rounded-[12px]">
